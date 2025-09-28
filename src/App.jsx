@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Routes, Route, Navigate, Link } from "react-router-dom";
+import { Routes, Route, Navigate, Link, useLocation } from "react-router-dom";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import NoteEditor from "./pages/NoteEditor";
@@ -14,8 +14,11 @@ function Protected({ children }) {
 }
 
 export default function App() {
+    const { token } = useContext(AppContext);
+
   return (
     <div className="app-root">
+      {token && (
       <aside className="sidebar">
         <Link to="/" className="logo">CollabNotes Lite</Link>
         <nav className = "sidebar-menu">
@@ -25,6 +28,7 @@ export default function App() {
           <Link to="/settings">Settings</Link>
         </nav>
       </aside>
+      )}
 
       <main className="app-main">
         <Routes>
