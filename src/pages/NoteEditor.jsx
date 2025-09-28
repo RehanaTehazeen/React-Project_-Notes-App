@@ -16,7 +16,6 @@ export default function NoteEditor() {
 
   useEffect(() => {
     if (id && !existing) {
-      // editing but not found: go back
       nav("/");
     }
   }, [id, existing, nav]);
@@ -33,23 +32,25 @@ export default function NoteEditor() {
   return (
     <div className="page editor-page">
       <div className="editor-card">
+              <h1>Create a New Note</h1>
+      <p>Fill in the details below and click save when you are done</p>
         <label>Title
-          <input value={title} onChange={e=>setTitle(e.target.value)} placeholder="Enter title"/>
+          <input value={title} onChange={e=>setTitle(e.target.value)} placeholder="Your note title"/>
         </label>
 
         <label>Category
-          <select value={category} onChange={e=>setCategory(e.target.value)}>
+          <select value={category} onChange={e=>setCategory(e.target.value)} placeholder = "Personal">
             {CATEGORIES.map(c => <option key={c} value={c}>{c}</option>)}
           </select>
         </label>
 
         <label>Content
-          <textarea value={content} onChange={e=>setContent(e.target.value)} rows={12} placeholder="Write your note..."/>
+          <textarea value={content} onChange={e=>setContent(e.target.value)} rows={12} placeholder="Write your note here.."/>
         </label>
 
         <div className="editor-actions">
-          <button className="btn" onClick={handleSave}>Save</button>
           <button className="btn ghost" onClick={()=>nav(-1)}>Cancel</button>
+          <button className="btn" onClick={handleSave}>Save Now</button>
         </div>
       </div>
     </div>

@@ -16,14 +16,15 @@ function Protected({ children }) {
 export default function App() {
   return (
     <div className="app-root">
-      <header className="app-header">
-        <Link to="/" className="logo">CollabNotes</Link>
-        <nav>
+      <aside className="sidebar">
+        <Link to="/" className="logo">CollabNotes Lite</Link>
+        <nav className = "sidebar-menu">
+          <Link to ="/new" className="btn"> + New Note</Link>
           <Link to="/">Home</Link>
           <Link to="/categories">Categories</Link>
           <Link to="/settings">Settings</Link>
         </nav>
-      </header>
+      </aside>
 
       <main className="app-main">
         <Routes>
@@ -39,3 +40,30 @@ export default function App() {
     </div>
   );
 }
+
+// export default function App() {
+//   return (
+//     <div className="app-root">
+//       <header className="app-header">
+//         <Link to="/" className="logo">CollabNotes Lite</Link>
+//         <nav>
+//           <Link to="/">Home</Link>
+//           <Link to="/categories">Categories</Link>
+//           <Link to="/settings">Settings</Link>
+//         </nav>
+//       </header>
+
+//       <main className="app-main">
+//         <Routes>
+//           <Route path="/login" element={<Login />} />
+//           <Route path="/" element={<Protected><Home/></Protected>} />
+//           <Route path="/new" element={<Protected><NoteEditor/></Protected>} />
+//           <Route path="/edit/:id" element={<Protected><NoteEditor/></Protected>} />
+//           <Route path="/categories" element={<Protected><Categories/></Protected>} />
+//           <Route path="/settings" element={<Protected><Settings/></Protected>} />
+//           <Route path="*" element={<Navigate to="/" />} />
+//         </Routes>
+//       </main>
+//     </div>
+//   );
+// }

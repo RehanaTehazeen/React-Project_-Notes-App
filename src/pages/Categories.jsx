@@ -10,6 +10,7 @@ export default function Categories() {
   return (
     <div className="page categories-page">
       <h2>Categories</h2>
+      <p>Browse your notes by Category</p>
       <div className="categories-list">
         {CATEGORIES.map(cat => (
           <Link key={cat} to={`/?category=${encodeURIComponent(cat)}`} className="category-item">

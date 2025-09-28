@@ -7,7 +7,10 @@ const TOKEN_KEY = "collabnotes_token_v1";
 const THEME_KEY = "collabnotes_theme_v1";
 
 export function AppProvider({ children }) {
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState(() => {
+  const raw = localStorage.getItem(NOTES_KEY);
+  return raw ? JSON.parse(raw) : [];
+});
   const [token, setToken] = useState(localStorage.getItem(TOKEN_KEY) || null);
   const [theme, setTheme] = useState(localStorage.getItem(THEME_KEY) || "light");
   const [loading, setLoading] = useState(false);
@@ -40,9 +43,11 @@ export function AppProvider({ children }) {
   };
 
   const getAllNotes = async () => {
+    if(notes.length>0) return notes;
     setLoading(true);
     const res = await mockApi.getNotes();
     setLoading(false);
+    if(res && res.length) setNotes(res);
     return res;
   };
 

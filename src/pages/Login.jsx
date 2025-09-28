@@ -22,16 +22,18 @@ export default function Login() {
   return (
     <div className="auth-page">
       <form className="auth-card" onSubmit={handleSubmit}>
-        <h2>Login</h2>
+        <h1>CollabNotes Lite</h1>
+        <h2>Welcome Back</h2>
+        <p>Enter your credentials to access your notes</p>
         {error && <div className="error">{error}</div>}
         <label>Username
-          <input value={username} onChange={e=>setUsername(e.target.value)} />
+          <input placeholder= "Enter your username" value={username} onChange={e=>setUsername(e.target.value)} />
         </label>
         <label>Password
-          <input type="password" value={password} onChange={e=>setPassword(e.target.value)} />
+          <input type="password" placeholder = "Enter your password" value={password} onChange={e=>setPassword(e.target.value)} />
         </label>
         <button className="btn" type="submit">Login</button>
-        <p className="muted">Use any username & password (mock auth).</p>
+        <p className="muted">Use any username & password</p>
       </form>
     </div>
   );

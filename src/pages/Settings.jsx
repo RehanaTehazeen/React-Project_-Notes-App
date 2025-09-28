@@ -21,6 +21,7 @@ export default function Settings() {
   return (
     <div className="page settings-page">
       <h2>Settings</h2>
+      <p>Manage your application settings</p>
       <div className="setting-row">
         <div>Theme</div>
         <div>
@@ -31,12 +32,14 @@ export default function Settings() {
       </div>
 
       <div className="setting-row">
-        <div>Clear Data</div>
-        <div><button className="btn ghost" onClick={handleClear}>Clear All Data</button></div>
+        <div>Clear All Notes</div>
+        <p>Permanently delete all of your notes</p>
+        <div><button className="btn ghost" onClick={handleClear}>Clear Data</button></div>
       </div>
 
       <div className="setting-row">
         <div>Logout</div>
+        <p> You will be returned to the login screen.</p>
         <div><button className="btn danger" onClick={handleLogout}>Logout</button></div>
       </div>
     </div>
