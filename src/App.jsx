@@ -48,7 +48,6 @@ export default function App() {
 // export default function App() {
 //   return (
 //     <div className="app-root">
-//       <header className="app-header">
 //         <Link to="/" className="logo">CollabNotes Lite</Link>
 //         <nav>
 //           <Link to="/">Home</Link>
